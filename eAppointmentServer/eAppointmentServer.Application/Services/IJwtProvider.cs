@@ -9,6 +9,6 @@ namespace eAppointmentServer.Application.Services
 {
     public interface IJwtProvider
     {
-        Task<string> CreateTokenAsync(AppUser user);
+        string CreateToken(AppUser user);
     }
 }
