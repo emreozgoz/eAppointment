@@ -40,14 +40,9 @@ namespace eAppointmentServer.Infrastructure
                 .UsingRegistrationStrategy(registrationStrategy: Scrutor.RegistrationStrategy.Skip)
                 .AsImplementedInterfaces()
                 .WithScopedLifetime();
-
             });
 
-            services.AddScoped<IUnitOfWork>(x => x.GetRequiredService<ApplicationDbContext>());
-            services.AddScoped<IAppointmentRepository, AppointmentRepository>();
-            services.AddScoped<IDoctorRepository, DoctorRepository>();
-            services.AddScoped<IPatientRepository, PatientRepository>();
-            services.AddScoped<IJwtProvider, JwtProvider>();
+        
             return services;
         }
     }
