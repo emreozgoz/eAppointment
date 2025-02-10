@@ -1,6 +1,13 @@
 @eAppointmentService.API_HostAddress = http://localhost:5197
 
-GET {{eAppointmentService.API_HostAddress}}/weatherforecast/
+POST {{eAppointmentService.API_HostAddress}}/api/Auth/Login
 Accept: application/json
+Content-Type: application/json
+
+{
+  "userNameOrEmail": "string",
+  "password": "string"
+
+}
 
 ###

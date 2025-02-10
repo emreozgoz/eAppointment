@@ -13,17 +13,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DotNetEnv;
+
 
 namespace eAppointmentServer.Infrastructure
 {
     public static class DependencyInjection
     {
-        public static IServiceCollection AddInfrastructure(IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
+            Env.Load();
+            var connectionStringTemplate = configuration.GetConnectionString("SqlServer");
+            var dbServer = Environment.GetEnvironmentVariable("DB_SERVER") ?? "localhost";
+
+            var finalConnectionString = connectionStringTemplate
+                .Replace("${DB_SERVER}", dbServer);
+
             services.AddDbContext<ApplicationDbContext>(opt =>
             {
-                opt.UseSqlServer(configuration.GetConnectionString("SqlServer"));
+                opt.UseSqlServer(finalConnectionString);
             });
+
             services.AddIdentity<AppUser, AppRole>(x =>
             {
                 x.Password.RequiredLength = 1;
@@ -42,7 +52,7 @@ namespace eAppointmentServer.Infrastructure
                 .WithScopedLifetime();
             });
 
-        
+
             return services;
         }
     }
