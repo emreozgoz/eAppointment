@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-layouts',
   standalone: true,
   imports: [RouterOutlet],
-  template:"<router-outlet></router-outlet>"
+  templateUrl: './layouts.component.html',
+  styleUrl: './layouts.component.css'
 })
-export class AppComponent {
-  title = 'eAppointmentClient';
+export class LayoutsComponent {
+
 }
