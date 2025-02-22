@@ -12,6 +12,7 @@ namespace eAppointmentServer.Application
     {
         public static IServiceCollection AddApplication(this IServiceCollection services)
         {
+            services.AddAutoMapper(typeof(DependencyInjection).Assembly);
             services.AddMediatR(conf =>
             {
                 conf.RegisterServicesFromAssembly(typeof(DependencyInjection).Assembly);

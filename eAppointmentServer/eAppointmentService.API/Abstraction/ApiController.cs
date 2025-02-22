@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace eAppointmentService.API.Abstraction
 {
+    [Route("api/[controller]/[action]")]
+    [ApiController]
     public abstract class ApiController : ControllerBase
     {
         public readonly IMediator _mediator;

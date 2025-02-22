@@ -7,8 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace eAppointmentService.API.Controllers
 {
-    [Route("api/[controller]/[action]")]
-    [ApiController]
+    
     public class AuthController : ApiController
     {
         public AuthController(IMediator mediator) : base(mediator)
