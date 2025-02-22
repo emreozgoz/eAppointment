@@ -31,7 +31,7 @@ namespace eAppointmentServer.Infrastructure
 
             services.AddDbContext<ApplicationDbContext>(opt =>
             {
-                opt.UseSqlServer(finalConnectionString);
+                opt.UseSqlServer(connectionStringTemplate);
             });
 
             services.AddIdentity<AppUser, AppRole>(x =>

@@ -1,5 +1,8 @@
 ﻿using AutoMapper;
 using eAppointmentServer.Application.Features.Doctors.CreateDoctor;
+using eAppointmentServer.Application.Features.Doctors.UpdateDoctor;
+using eAppointmentServer.Application.Features.Patients.CreatePatient;
+using eAppointmentServer.Application.Features.Patients.UpdatePatient;
 using eAppointmentServer.Domain.Entities;
 using eAppointmentServer.Domain.Enums;
 using System;
@@ -16,8 +19,15 @@ namespace eAppointmentServer.Application.Mapping
         {
             CreateMap<CreateDoctorCommand, Doctor>().ForMember(member => member.Department, options =>
             {
-                options.MapFrom(map => DepartmentEnum.FromValue(map.department));
+                options.MapFrom(map => DepartmentEnum.FromValue(map.departmentValue));
             });
+
+            CreateMap<UpdateDoctorCommand, Doctor>().ForMember(member => member.Department, options =>
+            {
+                options.MapFrom(map => DepartmentEnum.FromValue(map.departmentValue));
+            });
+            CreateMap<CreatePatientCommand, Patient>();
+            CreateMap<UpdatePatientCommand, Patient>();
         }
     }
 }

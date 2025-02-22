@@ -63,10 +63,10 @@ export class DoctorsComponent implements OnInit {
     })
   }
 
-  // get(data: DoctorModel){
-  //   this.updateModel = {...data};
-  //   this.updateModel.departmentValue = data.department.value;
-  // }
+  get(data: DoctorModel){
+    this.updateModel = {...data};
+    this.updateModel.departmentValue = data.department.value;
+  }
 
   update(form:NgForm){
     if(form.valid){

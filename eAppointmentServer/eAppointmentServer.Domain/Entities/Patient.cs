@@ -19,5 +19,7 @@ namespace eAppointmentServer.Domain.Entities
         public string City { get; set; } = string.Empty;
         public string Town { get; set; } = string.Empty;
         public string FullAddress { get; set; } = string.Empty;
+        public string FullName => string.Join(" ", FirstName, LastName);
+
     }
 }

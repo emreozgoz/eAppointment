@@ -1,22 +1,29 @@
-﻿using eAppointmentServer.Application.Features.Doctors.CreateDoctor;
-using eAppointmentServer.Application.Features.Doctors.DeleteDoctorById;
-using eAppointmentServer.Application.Features.Doctors.GetAllDoctor;
-using eAppointmentServer.Application.Features.Doctors.UpdateDoctor;
+﻿using eAppointmentServer.Application.Features.Patients.CreatePatient;
+using eAppointmentServer.Application.Features.Patients.GetAllPatient;
 using eAppointmentService.API.Abstraction;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using eAppointmentServer.Application.Features.Patients.DeletePatientById;
+using eAppointmentServer.Application.Features.Patients.UpdatePatient;
 
 namespace eAppointmentService.API.Controllers
 {
-
-    public class DoctorsController : ApiController
+    public class PatientsController : ApiController
     {
-        public DoctorsController(IMediator mediator) : base(mediator)
+        public PatientsController(IMediator mediator) : base(mediator)
         {
         }
 
         [HttpPost]
-        public async Task<IActionResult> GetAll(GetAllDoctorQuery query, CancellationToken cancellationToken)
+        public async Task<IActionResult> GetAll(GetAllPatientQuery query, CancellationToken cancellationToken)
+        {
+            var response = await _mediator.Send(query, cancellationToken);
+            return StatusCode(response.StatusCode, response);
+
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create(CreatePatientCommand query, CancellationToken cancellationToken)
         {
             var response = await _mediator.Send(query, cancellationToken);
             return StatusCode(response.StatusCode, response);
@@ -24,23 +31,14 @@ namespace eAppointmentService.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(CreateDoctorCommand query, CancellationToken cancellationToken)
-        {
-            var response = await _mediator.Send(query, cancellationToken);
-            return StatusCode(response.StatusCode, response);
-
-        }
-
-
-        [HttpPost]
-        public async Task<IActionResult> DeleteById(DeleteDoctorByIdCommand query, CancellationToken cancellationToken)
+        public async Task<IActionResult> DeleteById(DeletePatientByIdCommand query, CancellationToken cancellationToken)
         {
             var response = await _mediator.Send(query, cancellationToken);
             return StatusCode(response.StatusCode, response);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Update(UpdateDoctorCommand query, CancellationToken cancellationToken)
+        public async Task<IActionResult> Update(UpdatePatientCommand query, CancellationToken cancellationToken)
         {
             var response = await _mediator.Send(query, cancellationToken);
             return StatusCode(response.StatusCode, response);
