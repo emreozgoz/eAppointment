@@ -7,11 +7,10 @@ import { LoginResponseModel } from '../../models/login.response.model';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-login',
-  standalone: true,
-  imports: [FormsModule, FormValidateDirective],
-  templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+    selector: 'app-login',
+    imports: [FormsModule, FormValidateDirective],
+    templateUrl: './login.component.html',
+    styleUrl: './login.component.css'
 })
 export class LoginComponent {
   login: LoginModel = new LoginModel();

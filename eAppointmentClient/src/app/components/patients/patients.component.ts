@@ -9,11 +9,11 @@ import { PatientPipe } from '../../pipe/patient.pipe';
 import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-patient',
-  standalone: true,
-  imports: [CommonModule, FormsModule, RouterLink, FormValidateDirective, PatientPipe],
-  templateUrl: './patients.component.html',
-  styleUrl: './patients.component.css'
+    selector: 'app-patient',
+    imports: [CommonModule, FormsModule, RouterLink, FormValidateDirective, PatientPipe],
+    templateUrl: './patients.component.html',
+    styleUrl: './patients.component.css',
+    standalone: true
 })
 export class PatientsComponent implements OnInit {
   patients: PatientModel[] = [];

@@ -10,11 +10,11 @@ import { SwalService } from '../../services/swal.service';
 import { DoctorPipe } from '../../pipe/doctor.pipe';
 
 @Component({
-  selector: 'app-doctors',
-  standalone: true,
-  imports: [CommonModule, RouterLink, FormsModule, FormValidateDirective, DoctorPipe],
-  templateUrl: './doctors.component.html',
-  styleUrl: './doctors.component.css'
+    selector: 'app-doctors',
+    imports: [CommonModule, RouterLink, FormsModule, FormValidateDirective, DoctorPipe],
+    templateUrl: './doctors.component.html',
+    styleUrl: './doctors.component.css',
+    standalone: true,
 })
 export class DoctorsComponent implements OnInit {
   doctors: DoctorModel[] = [];
