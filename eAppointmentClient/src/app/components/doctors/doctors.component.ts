@@ -46,7 +46,7 @@ export class DoctorsComponent implements OnInit {
   add(form: NgForm){
     if(form.valid){
       this.http.post<string>("Doctors/Create",this.createModel,(res)=> {
-        this.swal.callToast(res.data,"success");
+        this.swal.callToast(res.data,'success');
         this.getAll();
         this.addModalCloseBtn?.nativeElement.click();
         this.createModel = new DoctorModel();
@@ -63,10 +63,10 @@ export class DoctorsComponent implements OnInit {
     })
   }
 
-  get(data: DoctorModel){
-    this.updateModel = {...data};
-    this.updateModel.departmentValue = data.department.value;
-  }
+  // get(data: DoctorModel){
+  //   this.updateModel = {...data};
+  //   this.updateModel.departmentValue = data.department.value;
+  // }
 
   update(form:NgForm){
     if(form.valid){

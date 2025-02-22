@@ -43,6 +43,9 @@ namespace eAppointmentServer.Infrastructure
                 x.Password.RequireDigit = false;
             }).AddEntityFrameworkStores<ApplicationDbContext>();
 
+            services.AddScoped<IUnitOfWork>(srv => srv.GetRequiredService<ApplicationDbContext>());
+
+
             services.Scan(action =>
             {
                 action.FromAssemblies(typeof(DependencyInjection).Assembly)

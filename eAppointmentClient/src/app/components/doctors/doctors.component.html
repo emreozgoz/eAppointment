@@ -42,9 +42,9 @@
                       <td>{{doctor.fullName}}</td>
                       <td>{{doctor.department.name}}</td>
                       <td>
-                          <button (click)="get(doctor)" data-bs-toggle="modal" data-bs-target="#updateModal" class="btn btn-sm btn-outline-primary me-1" title="Update">
+                          <!-- <button (click)="ge(doctor)" data-bs-toggle="modal" data-bs-target="#updateModal" class="btn btn-sm btn-outline-primary me-1" title="Update">
                               <i class="fa-solid fa-edit"></i>
-                          </button>
+                          </button> -->
                           <button (click)="delete(doctor.id,doctor.fullName)" class="btn btn-sm btn-outline-danger" title="Delete">
                               <i class="fa-solid fa-trash"></i>
                           </button>
@@ -80,7 +80,7 @@
 
               <div class="form-group mt-2">
                   <label>Department</label>
-                  <select class="form-control" name="department" [(ngModel)]="createModel.departmentValue" required>
+                  <select class="form-control" name="department" [(ngModel)]="createModel.department" required>
                       <option [value]=0>Select...</option>
                       @for(department of departments; track department){
                           <option [value]="department.value">{{department.name}}</option>
@@ -121,12 +121,12 @@
 
               <div class="form-group mt-2">
                   <label>Department</label>
-                  <select class="form-control" name="updateDepartment" [(ngModel)]="updateModel.departmentValue" required>
+                  <!-- <select class="form-control" name="updateDepartment" [(ngModel)]="updateModel.departmentValue" required>
                       <option value="">Select...</option>
                       @for(department of departments; track department){
                           <option [value]="department.value">{{department.name}}</option>
                       }
-                  </select>
+                  </select> -->
                   <div class="invalid-feedback"></div>
               </div>
           </div>
